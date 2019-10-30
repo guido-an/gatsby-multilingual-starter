@@ -18,6 +18,9 @@ const IndexPage = ({ pathContext: { locale } }) => (
     <SEO title="Home" />
 
     <h1>{messages[locale].hello}</h1>
+<p><Link to="/it">Ita</Link></p>
+    
+   <p> <Link to="/">En</Link></p>
  
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
