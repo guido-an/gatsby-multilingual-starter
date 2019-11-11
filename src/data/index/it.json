@@ -1,3 +1,6 @@
 {
-    "hello": "Ciao"
+    "hello": "Ciao",
+    "NextPage": "Pagina successiva",
+    "page": "/pagina-successiva"
+
 }

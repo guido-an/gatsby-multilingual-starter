@@ -5,6 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,6 +14,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -27,8 +30,28 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    'gatsby-transformer-json',
+  {
+    
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `data`,
+      path: `${__dirname}/src/data/`
+    }
+  },
+
+  {
+    resolve: `gatsby-plugin-routes`,
+    options: {
+      // this is the path to your routes configuration file
+      path: `${__dirname}/src/routes.js`,
+    },
+  },
+  
   ],
 }
