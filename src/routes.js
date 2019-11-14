@@ -12,4 +12,8 @@ module.exports = [
     path: '/pagina-successiva',
     component: path.resolve(`src/pages/page-2.js`)
   },
+  {
+    path: '/page-suivante',
+    component: path.resolve(`src/pages/page-2.js`)
+  },
 ];

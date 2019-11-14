@@ -7,5 +7,9 @@ module.exports = {
     it: {
       path: 'it',
       locale: 'Italiano'
+    },
+    fr: {
+      path: 'fr',
+      locale: 'Française',
     }
   }

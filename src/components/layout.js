@@ -11,7 +11,7 @@ const {
 
 
 
-const Layout = ({ children, path, locale }) => {
+const Layout = ({ children, path, locale,siteTitle }) => {
   const data = useStaticQuery(graphql`
   query SiteTitleQuery {
     site {
@@ -22,7 +22,7 @@ const Layout = ({ children, path, locale }) => {
   return(  
     <LocaleProvider value={locale}>
       <>
-      <Header  siteTitle={data.site.siteMetadata.title}/>
+      <Header  siteTitle={siteTitle}/>
       <div 
       style={{
             margin: `0 auto`,

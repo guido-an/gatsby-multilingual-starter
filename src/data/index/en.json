@@ -1,5 +1,6 @@
 {
     "hello": "Hello",
     "NextPage": "NextPage",
-    "page": "/next-page"
+    "page": "/next-page",
+    "siteTitle": "Welcome"
 }

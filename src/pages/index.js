@@ -9,13 +9,15 @@ import LocalizedLink from '../components/LocalizedLink'
 
 const IndexPage = ({ pageContext: { locale }, data }) => {
 console.log(data,"dataCheck on indexjs")
-const { hello,NextPage,page } = data.file.childIndexJson
+
+const {hello,NextPage,page,siteTitle } = data.file.childIndexJson
   return(
-    <Layout path="/" locale={locale}>
+    <Layout path="/" locale={locale} siteTitle={siteTitle}>
       <SEO title="Home" />
       <h1>{hello}</h1>
       <p><Link to="/it">Ita</Link></p>
       <p><Link to="/">En</Link></p>
+      <p><Link to="/fr">Fr</Link></p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
@@ -23,14 +25,15 @@ const { hello,NextPage,page } = data.file.childIndexJson
     </Layout>
   )
 }
+
 export const query = graphql`
-  query Home($locale: String) {
+  query Home1($locale: String) {
     file(name: { eq: $locale }, relativeDirectory: { eq: "index" }) {
       childIndexJson {
         hello
         NextPage
         page
-        
+        siteTitle
       }
     }
   }
