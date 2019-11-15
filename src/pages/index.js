@@ -10,14 +10,15 @@ import LocalizedLink from '../components/LocalizedLink'
 const IndexPage = ({ pageContext: { locale }, data }) => {
 console.log(data,"dataCheck on indexjs")
 
+
 const {hello,NextPage,page,siteTitle } = data.file.childIndexJson
   return(
-    <Layout path="/" locale={locale} siteTitle={siteTitle}>
+    <Layout path="/" locale={locale} siteTitle={siteTitle}> {/* site title gets from graphql query and pass it to layout component */}
       <SEO title="Home" />
       <h1>{hello}</h1>
       <p><Link to="/it">Ita</Link></p>
       <p><Link to="/">En</Link></p>
-      <p><Link to="/fr">Fr</Link></p>
+      <p><Link to="/fr">Fr</Link></p>  {/* link for french langauge  */}
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
@@ -25,9 +26,9 @@ const {hello,NextPage,page,siteTitle } = data.file.childIndexJson
     </Layout>
   )
 }
-
+// graphql query is used to read or fetch values from json file.
 export const query = graphql`
-  query Home1($locale: String) {
+  query Home($locale: String) {
     file(name: { eq: $locale }, relativeDirectory: { eq: "index" }) {
       childIndexJson {
         hello

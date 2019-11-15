@@ -1,4 +1,5 @@
 const path = require('path');
+//add page route here
 module.exports = [
   {
     path: '/',
@@ -12,6 +13,7 @@ module.exports = [
     path: '/pagina-successiva',
     component: path.resolve(`src/pages/page-2.js`)
   },
+  //next page route for french language 
   {
     path: '/page-suivante',
     component: path.resolve(`src/pages/page-2.js`)
