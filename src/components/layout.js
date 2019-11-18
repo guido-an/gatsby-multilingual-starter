@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
@@ -11,18 +11,12 @@ const {
 
 
 
-const Layout = ({ children, path, locale,siteTitle }) => {
-  const data = useStaticQuery(graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }}`)
+const Layout = ({ children, locale, data }) => {  // accesss data"
+  console.log(data,"fromlayout")
   return(  
     <LocaleProvider value={locale}>
       <>
-      <Header  siteTitle={siteTitle}/>
+      <Header data={data}/>        {/*pass 'data' to header so it can use GraphQL query  */}
       <div 
       style={{
             margin: `0 auto`,
@@ -56,5 +50,17 @@ Layout.propTypes = {
 Layout.defaultProps = {
   path: '/'
 }
+
+
+
+export const query = graphql`          
+  query Layout($locale: String) {
+    file(name: { eq: $locale }, relativeDirectory: { eq: "index" }) {
+      childIndexJson {
+       siteTitle
+      }
+    }
+  }
+ `
 
 export default Layout

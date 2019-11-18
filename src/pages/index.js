@@ -8,12 +8,9 @@ import SEO from "../components/seo"
 import LocalizedLink from '../components/LocalizedLink'
 
 const IndexPage = ({ pageContext: { locale }, data }) => {
-console.log(data,"dataCheck on indexjs")
-
-
-const {hello,NextPage,page,siteTitle } = data.file.childIndexJson
+const {hello,NextPage,page } = data.file.childIndexJson
   return(
-    <Layout path="/" locale={locale} siteTitle={siteTitle}> {/* site title gets from graphql query and pass it to layout component */}
+    <Layout path="/" locale={locale} data={data}> {/* site title gets from graphql query and pass it to layout component */}
       <SEO title="Home" />
       <h1>{hello}</h1>
       <p><Link to="/it">Ita</Link></p>
@@ -39,19 +36,19 @@ export const query = graphql`
     }
   }
 `
-IndexPage.propTypes = {
-  pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired
-  }).isRequired,
-  data: PropTypes.shape({
-    file: PropTypes.shape({
-      childIndexJson: PropTypes.shape({
-        // title: PropTypes.string.isRequired,
-        // about: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
-  }).isRequired
-}
+// IndexPage.propTypes = {
+//   pageContext: PropTypes.shape({
+//     locale: PropTypes.string.isRequired
+//   }).isRequired,
+//   data: PropTypes.shape({
+//     file: PropTypes.shape({
+//       childIndexJson: PropTypes.shape({
+//         // title: PropTypes.string.isRequired,
+//         // about: PropTypes.string.isRequired
+//       }).isRequired
+//     }).isRequired
+//   }).isRequired
+// }
 
 
 export default IndexPage
